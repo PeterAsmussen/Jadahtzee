@@ -1,0 +1,15 @@
+C:\Source\Jadahtzee\Jadahtzee\Jadahtzee\bin\Debug\Jadahtzee.exe.config
+C:\Source\Jadahtzee\Jadahtzee\Jadahtzee\bin\Debug\Jadahtzee.exe
+C:\Source\Jadahtzee\Jadahtzee\Jadahtzee\bin\Debug\Jadahtzee.pdb
+C:\Source\Jadahtzee\Jadahtzee\Jadahtzee\obj\Debug\Jadahtzee.csprojResolveAssemblyReference.cache
+C:\Source\Jadahtzee\Jadahtzee\Jadahtzee\obj\Debug\App.g.cs
+C:\Source\Jadahtzee\Jadahtzee\Jadahtzee\obj\Debug\Jadahtzee_MarkupCompile.cache
+C:\Source\Jadahtzee\Jadahtzee\Jadahtzee\obj\Debug\Jadahtzee_MarkupCompile.lref
+C:\Source\Jadahtzee\Jadahtzee\Jadahtzee\obj\Debug\Jadahtzee.g.resources
+C:\Source\Jadahtzee\Jadahtzee\Jadahtzee\obj\Debug\Jadahtzee.Properties.Resources.resources
+C:\Source\Jadahtzee\Jadahtzee\Jadahtzee\obj\Debug\Jadahtzee.csproj.GenerateResource.Cache
+C:\Source\Jadahtzee\Jadahtzee\Jadahtzee\obj\Debug\Jadahtzee.csproj.CoreCompileInputs.cache
+C:\Source\Jadahtzee\Jadahtzee\Jadahtzee\obj\Debug\Jadahtzee.exe
+C:\Source\Jadahtzee\Jadahtzee\Jadahtzee\obj\Debug\Jadahtzee.pdb
+C:\Source\Jadahtzee\Jadahtzee\Jadahtzee\obj\Debug\YahtzeeWindow.g.cs
+C:\Source\Jadahtzee\Jadahtzee\Jadahtzee\obj\Debug\YahtzeeWindow.baml
