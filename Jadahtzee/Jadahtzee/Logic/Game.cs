@@ -13,6 +13,11 @@ namespace Jadahtzee.Logic
         public GameLogic(List<Player> players)
         {
             this.Players = players;
+
+            foreach(var player in this.Players)
+            {
+                
+            }
         }
                 
         public void AddPlayer(Player newPlayer)
