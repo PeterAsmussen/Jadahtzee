@@ -8,11 +8,11 @@
 
     public class Player
     {
-        private string name;
-
         public Player(string name)
         {
-            this.name = name;
+            this.Name = name;
         }
+
+        public string Name { get; set; }
     }
 }
