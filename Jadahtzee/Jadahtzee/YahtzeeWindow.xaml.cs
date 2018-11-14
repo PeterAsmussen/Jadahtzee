@@ -24,11 +24,10 @@ namespace Jadahtzee
         {
             InitializeComponent();
 
+            this.ResetWindowSize();
+
             this.playersToAdd = new List<Player>();
             this.playerControllers = new List<PlayerControl>();
-
-            this.Height = this.MinHeight = this.MaxHeight = 500;
-            this.Width = this.MinWidth = this.MaxWidth = 350;
         }
 
         /// <summary>
@@ -94,6 +93,15 @@ namespace Jadahtzee
             this.MinHeight = this.MaxHeight = this.Height;
         }
 
+        /// <summary>
+        /// Resets the window size to the default.
+        /// </summary>
+        private void ResetWindowSize()
+        {
+            this.Height = this.MinHeight = this.MaxHeight = 500;
+            this.Width = this.MinWidth = this.MaxWidth = 350;
+        }
+
         #region Button handlers
         private void btnNewGame_Click(object sender, RoutedEventArgs e)
         {
@@ -107,7 +115,8 @@ namespace Jadahtzee
             {
                 this.cnvNewGame.Visibility = Visibility.Visible;
                 this.expOptions.IsExpanded = false;
-                this.cnvMain.Children.RemoveRange(1, this.playersToAdd.Count);
+                this.cnvMain.Children.RemoveRange(0, this.playersToAdd.Count);
+                this.ResetWindowSize();
             }
         }
 
