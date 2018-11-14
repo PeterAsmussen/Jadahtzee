@@ -3,7 +3,9 @@ using System;
 using System.Collections.Generic;
 using System.Text.RegularExpressions;
 using System.Windows;
+using System.Windows.Controls;
 using System.Windows.Input;
+using System.Windows.Media.Imaging;
 
 namespace Jadahtzee
 {
@@ -12,14 +14,87 @@ namespace Jadahtzee
     /// </summary>
     public partial class YahtzeeWindow : Window
     {
-        private GameLogic logic;
-        private List<Logic.Player> playersToAdd;
+        private Game game;
+
+        private List<Player> playersToAdd;
+
+        private List<PlayerControl> playerControllers;
 
         public YahtzeeWindow()
         {
             InitializeComponent();
+
+            this.playersToAdd = new List<Player>();
+            this.playerControllers = new List<PlayerControl>();
+
+            this.Height = this.MinHeight = this.MaxHeight = 500;
+            this.Width = this.MinWidth = this.MaxWidth = 350;
         }
 
+        /// <summary>
+        /// Makes sure the textbox input is numeric.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void NumberValidationTextBox(object sender, TextCompositionEventArgs e)
+        {
+            Regex regex = new Regex("[^0-9]+");
+            e.Handled = regex.IsMatch(e.Text);
+        }
+
+        /// <summary>
+        /// Draws the players.
+        /// </summary>
+        /// <param name="players">The players.</param>
+        private void DrawPlayerOnCanvas(List<Player> players)
+        {
+            this.SetWindowSize(players.Count);
+
+            var index = 0;
+            var y = this.expOptions.Height + 20;
+            foreach (var player in players)
+            {
+                var x = index * 240;
+
+                if (index == 4)
+                {
+                    y += 305;
+                    index -= 4;
+                    x = index * 230;
+                }
+
+                var playerControl = new PlayerControl(x, y, player);
+                this.playerControllers.Add(playerControl);
+                this.cnvMain.Children.Add(playerControl);
+                index += 1;
+            }
+        }
+
+        /// <summary>
+        /// Sets the window size.
+        /// </summary>
+        /// <param name="players">The amount of players.</param>
+        private void SetWindowSize(int players)
+        {
+            if (players >= 4)
+            {
+                this.Width = 240 * 4 + 25;
+
+                if (players > 4)
+                {
+                    this.Height = 800;
+                }
+            }
+            else
+            {
+                this.Width = (250 * players) + (2 * players);
+            }
+
+            this.MinWidth = this.MaxWidth = this.Width;
+            this.MinHeight = this.MaxHeight = this.Height;
+        }
+
+        #region Button handlers
         private void btnNewGame_Click(object sender, RoutedEventArgs e)
         {
             MessageBoxResult result = MessageBox.Show(
@@ -36,57 +111,30 @@ namespace Jadahtzee
             }
         }
 
-        private void btnAddPlayer_Click(object sender, RoutedEventArgs e)
-        {
-            //logic.AddPlayer(new Logic.Player(e.ToString()));
-        }
-
-        private void btnRemovePlayer_Click(object sender, RoutedEventArgs e)
-        {
-            //logic.RemovePlayer(0); // 0 for now
-        }
-
         private void btn2NewGame_Click(object sender, RoutedEventArgs e)
         {
             var input = this.txtNewGame.Text;
             if (input != string.Empty)
             {
-                playersToAdd = new List<Logic.Player>();
                 for (int i = 1; i <= Int32.Parse(input); i++)
                 {
-                    playersToAdd.Add(new Logic.Player("Player " + i));
+                    var name = Microsoft.VisualBasic.Interaction.InputBox($"Enter a name for player {i}!","Names","[name goes here]");
+                    playersToAdd.Add(new Player(name.ToString()));
                 }
 
-                this.AddPlayerToWindow(playersToAdd);
-                this.logic = new GameLogic(playersToAdd);
+                this.DrawPlayerOnCanvas(playersToAdd);
+                this.game = new Game(playersToAdd);
                 this.cnvNewGame.Visibility = Visibility.Hidden;
             }
         }
 
-        private void NumberValidationTextBox(object sender, TextCompositionEventArgs e)
+        private void btnResetGame_Click(object sender, RoutedEventArgs e)
         {
-            Regex regex = new Regex("[^0-9]+");
-            e.Handled = regex.IsMatch(e.Text);
-        }
-
-        private void AddPlayerToWindow(List<Logic.Player> players)
-        {
-            var index = 0;
-            foreach(var player in players)
+            foreach (var control in this.playerControllers)
             {
-                var x = index * 230;
-                var y = this.expOptions.Height;
-
-                if (index > 4)
-                {
-                    y = this.expOptions.Height + 305;
-                    index = 0;
-                    x = index * 230;
-                }
-
-                this.cnvMain.Children.Add(new Player(x, y, player));
-                index += 1;
+                control.Reset();
             }
         }
+        #endregion
     }
 }

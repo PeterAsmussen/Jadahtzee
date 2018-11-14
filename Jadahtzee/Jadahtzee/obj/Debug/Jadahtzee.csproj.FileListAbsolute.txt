@@ -13,6 +13,5 @@ C:\Source\Jadahtzee\Jadahtzee\Jadahtzee\obj\Debug\Jadahtzee.exe
 C:\Source\Jadahtzee\Jadahtzee\Jadahtzee\obj\Debug\Jadahtzee.pdb
 C:\Source\Jadahtzee\Jadahtzee\Jadahtzee\obj\Debug\YahtzeeWindow.g.cs
 C:\Source\Jadahtzee\Jadahtzee\Jadahtzee\obj\Debug\YahtzeeWindow.baml
-C:\Source\Jadahtzee\Jadahtzee\Jadahtzee\obj\Debug\Player.g.cs
-C:\Source\Jadahtzee\Jadahtzee\Jadahtzee\obj\Debug\Player.baml
-C:\Source\Jadahtzee\Jadahtzee\Jadahtzee\obj\Debug\GeneratedInternalTypeHelper.g.cs
+C:\Source\Jadahtzee\Jadahtzee\Jadahtzee\obj\Debug\PlayerControl.g.cs
+C:\Source\Jadahtzee\Jadahtzee\Jadahtzee\obj\Debug\PlayerControl.baml

@@ -6,28 +6,18 @@ using System.Threading.Tasks;
 
 namespace Jadahtzee.Logic
 {
-    public class GameLogic
+    public class Game
     {
         public List<Player> Players { get; set; }
 
-        public GameLogic(List<Player> players)
+        public Game(List<Player> players)
         {
             this.Players = players;
-
-            foreach(var player in this.Players)
-            {
-                
-            }
         }
                 
         public void AddPlayer(Player newPlayer)
         {
             this.Players.Add(newPlayer);
-        }
-
-        public void RemovePlayer(int index)
-        {
-            this.Players.RemoveAt(index);
         }
     }
 }

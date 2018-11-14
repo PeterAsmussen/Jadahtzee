@@ -33,7 +33,11 @@
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationIcon>Resources\yahtzee-icon.ico</ApplicationIcon>
+  </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Microsoft.VisualBasic" />
     <Reference Include="System" />
     <Reference Include="System.Data" />
     <Reference Include="System.Xml" />
@@ -54,7 +58,7 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
-    <Page Include="Player.xaml">
+    <Page Include="PlayerControl.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -67,10 +71,10 @@
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Logic\Game.cs" />
-    <Compile Include="Logic\IGame.cs" />
+    <Compile Include="Logic\GameLogic.cs" />
     <Compile Include="Logic\Player.cs" />
-    <Compile Include="Player.xaml.cs">
-      <DependentUpon>Player.xaml</DependentUpon>
+    <Compile Include="PlayerControl.xaml.cs">
+      <DependentUpon>PlayerControl.xaml</DependentUpon>
     </Compile>
     <Compile Include="YahtzeeWindow.xaml.cs">
       <DependentUpon>YahtzeeWindow.xaml</DependentUpon>
@@ -102,6 +106,12 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Yahtzee-logo.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\yahtzee-icon.ico" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

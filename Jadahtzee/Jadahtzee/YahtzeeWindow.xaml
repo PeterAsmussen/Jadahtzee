@@ -13,14 +13,17 @@
             <GroupBox x:Name="grpbNewGame" Header="Yahtzee!" Height="82" Canvas.Left="10" Canvas.Top="10" Width="158" FontSize="14"/>
             <TextBlock HorizontalAlignment="Left" TextWrapping="Wrap" Text="How many are playing?" VerticalAlignment="Top" Width="108" FontSize="10" Canvas.Left="38" Canvas.Top="38"/>
         </Canvas>
-        <Canvas x:Name="cnvMain" HorizontalAlignment="Left" Height="849" Margin="10,10,0,0" VerticalAlignment="Top" Width="1172">
-            <Expander x:Name="expOptions" Header="Options" HorizontalAlignment="Left" Height="104" VerticalAlignment="Top" Width="108" IsExpanded="True">
-                <Grid Background="White" Margin="0,0,3,0">
-                    <Button x:Name="btnNewGame" Content="New game" HorizontalAlignment="Left" Margin="7,5,0,0" VerticalAlignment="Top" Width="88" Click="btnNewGame_Click"/>
-                    <Button x:Name="btnAddPlayer" Content="Add player" HorizontalAlignment="Left" Margin="7,30,0,0" VerticalAlignment="Top" Width="88" Click="btnAddPlayer_Click"/>
-                    <Button x:Name="btnRemovePlayer" Content="Remove player" HorizontalAlignment="Left" Margin="7,55,0,0" VerticalAlignment="Top" Width="88" Click="btnRemovePlayer_Click"/>
-                </Grid>
-            </Expander>
-        </Canvas>
+        <Expander x:Name="expOptions" Header="Options" HorizontalAlignment="Left" Height="90" VerticalAlignment="Top" Width="108" IsExpanded="False" Panel.ZIndex="1">
+            <Grid Background="White" Margin="0,0,3,0">
+                <Button x:Name="btnNewGame" Content="New game" HorizontalAlignment="Left" Margin="7,5,0,0" VerticalAlignment="Top" Width="88" Click="btnNewGame_Click"/>
+                <Button x:Name="btnResetGame" Content="Reset game" HorizontalAlignment="Left" Margin="7,30,0,0" VerticalAlignment="Top" Width="88" Click="btnResetGame_Click"/>
+            </Grid>
+        </Expander>
+        <Canvas x:Name="cnvMain" HorizontalAlignment="Left" Height="849" Margin="10,10,0,0" VerticalAlignment="Top" Width="1172"/>
+        <Image Height="90" Width="200" HorizontalAlignment="Center" VerticalAlignment="Top">
+            <Image.Source>
+                <ImageSource>Resources/Yahtzee-logo.png</ImageSource>
+            </Image.Source>
+        </Image>
     </Grid>
 </Window>

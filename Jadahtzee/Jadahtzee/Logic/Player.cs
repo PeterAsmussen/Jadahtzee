@@ -1,11 +1,5 @@
 ﻿namespace Jadahtzee.Logic
 {
-    using System;
-    using System.Collections.Generic;
-    using System.Linq;
-    using System.Text;
-    using System.Threading.Tasks;
-
     public class Player
     {
         public Player(string name)
@@ -14,5 +8,9 @@
         }
 
         public string Name { get; set; }
+
+        public int ScoreUpper { get; set; }
+
+        public int ScoreTotal { get; set; }
     }
 }
