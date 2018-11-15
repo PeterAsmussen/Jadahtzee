@@ -9,8 +9,6 @@
 
         public string Name { get; set; }
 
-        public int ScoreUpper { get; set; }
-
         public int ScoreTotal { get; set; }
     }
 }

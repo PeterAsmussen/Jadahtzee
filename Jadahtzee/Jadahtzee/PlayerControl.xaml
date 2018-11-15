@@ -7,7 +7,7 @@
              mc:Ignorable="d" 
              Height="300"
              Width="230">
-    <Grid x:Name="ucPlayer">
+    <Grid x:Name="ucPlayer" IsEnabledChanged="ucPlayer_IsEnabledChanged">
         <GroupBox x:Name="grpbPlayer" Header="playe" HorizontalAlignment="Left" Height="300" VerticalAlignment="Top" Width="229" BorderBrush="#FF000306">
             <Grid Margin="0,5,0,-1">
                 <StackPanel x:Name="stkpPairs" HorizontalAlignment="Left" Height="98" VerticalAlignment="Top" Width="60">
@@ -20,12 +20,12 @@
                 </StackPanel>
                 <GridSplitter HorizontalAlignment="Left" Height="96" Margin="60,0,0,0" VerticalAlignment="Top" Width="0" RenderTransformOrigin="0.5,0.5"/>
                 <StackPanel HorizontalAlignment="Left" Height="100" Margin="61,0,0,0" VerticalAlignment="Top" Width="113">
-                    <TextBox x:Name="txtAces" Height="16" TextWrapping="Wrap" FontSize="9" HorizontalAlignment="Center" Width="113" TextAlignment="Center" PreviewTextInput="NumberValidationTextBox" TextChanged="txtAces_TextChanged" />
-                    <TextBox x:Name="txtTwos" Height="16" TextWrapping="Wrap" FontSize="9" HorizontalAlignment="Center" Width="113" TextAlignment="Center" PreviewTextInput="NumberValidationTextBox" TextChanged="txtTwos_TextChanged"/>
-                    <TextBox x:Name="txtThrees" Height="16" TextWrapping="Wrap" FontSize="9" HorizontalAlignment="Center" Width="113" TextAlignment="Center" PreviewTextInput="NumberValidationTextBox" TextChanged="txtThrees_TextChanged"/>
-                    <TextBox x:Name="txtFours" Height="16" TextWrapping="Wrap" FontSize="9" HorizontalAlignment="Center" Width="113" TextAlignment="Center" PreviewTextInput="NumberValidationTextBox" TextChanged="txtFours_TextChanged"/>
-                    <TextBox x:Name="txtFives" Height="16" TextWrapping="Wrap" FontSize="9" HorizontalAlignment="Center" Width="113" TextAlignment="Center" PreviewTextInput="NumberValidationTextBox" TextChanged="txtFives_TextChanged"/>
-                    <TextBox x:Name="txtSixes" Height="16" TextWrapping="Wrap" FontSize="9" HorizontalAlignment="Center" Width="113" TextAlignment="Center" PreviewTextInput="NumberValidationTextBox" TextChanged="txtSixes_TextChanged"/>
+                    <TextBox x:Name="txtAces" Height="16" TextWrapping="Wrap" FontSize="9" HorizontalAlignment="Center" Width="113" TextAlignment="Center" PreviewTextInput="NumberValidationTextBox" LostFocus="txtAces_LostFocus" />
+                    <TextBox x:Name="txtTwos" Height="16" TextWrapping="Wrap" FontSize="9" HorizontalAlignment="Center" Width="113" TextAlignment="Center" PreviewTextInput="NumberValidationTextBox" LostFocus="txtTwos_LostFocus"/>
+                    <TextBox x:Name="txtThrees" Height="16" TextWrapping="Wrap" FontSize="9" HorizontalAlignment="Center" Width="113" TextAlignment="Center" PreviewTextInput="NumberValidationTextBox" LostFocus="txtThrees_LostFocus"/>
+                    <TextBox x:Name="txtFours" Height="16" TextWrapping="Wrap" FontSize="9" HorizontalAlignment="Center" Width="113" TextAlignment="Center" PreviewTextInput="NumberValidationTextBox" LostFocus="txtFours_LostFocus"/>
+                    <TextBox x:Name="txtFives" Height="16" TextWrapping="Wrap" FontSize="9" HorizontalAlignment="Center" Width="113" TextAlignment="Center" PreviewTextInput="NumberValidationTextBox" LostFocus="txtFives_LostFocus"/>
+                    <TextBox x:Name="txtSixes" Height="16" TextWrapping="Wrap" FontSize="9" HorizontalAlignment="Center" Width="113" TextAlignment="Center" PreviewTextInput="NumberValidationTextBox" LostFocus="txtSixes_LostFocus"/>
                 </StackPanel>
                 <GridSplitter HorizontalAlignment="Left" Height="96" Margin="174,0,0,0" VerticalAlignment="Top" Width="0" RenderTransformOrigin="0.5,0.5"/>
                 <StackPanel HorizontalAlignment="Left" Height="100" Margin="179,0,0,0" VerticalAlignment="Top" Width="38">
@@ -47,13 +47,13 @@
                 </StackPanel>
                 <GridSplitter HorizontalAlignment="Left" Height="112" VerticalAlignment="Top" Width="0" RenderTransformOrigin="0.5,0.5" Margin="61,133,0,0"/>
                 <StackPanel HorizontalAlignment="Left" Height="117" Margin="61,133,0,0" VerticalAlignment="Top" Width="113">
-                    <TextBox x:Name="txtToaK" Height="16" TextWrapping="Wrap" FontSize="9" HorizontalAlignment="Center" Width="113" TextAlignment="Center" PreviewTextInput="NumberValidationTextBox" TextChanged="txtToaK_TextChanged"/>
-                    <TextBox x:Name="txtFoaK" Height="16" TextWrapping="Wrap" FontSize="9" HorizontalAlignment="Center" Width="113" TextAlignment="Center" PreviewTextInput="NumberValidationTextBox" TextChanged="txtFoaK_TextChanged"/>
-                    <TextBox x:Name="txtFH" Height="16" TextWrapping="Wrap" FontSize="9" HorizontalAlignment="Center" Width="113" TextAlignment="Center" PreviewTextInput="NumberValidationTextBox" TextChanged="txtFH_TextChanged"/>
-                    <TextBox x:Name="txtSmall" Height="16" TextWrapping="Wrap" FontSize="9" HorizontalAlignment="Center" Width="113" TextAlignment="Center" PreviewTextInput="NumberValidationTextBox" TextChanged="txtSmall_TextChanged"/>
-                    <TextBox x:Name="txtLarge" Height="16" TextWrapping="Wrap" FontSize="9" HorizontalAlignment="Center" Width="113" TextAlignment="Center" PreviewTextInput="NumberValidationTextBox" TextChanged="txtLarge_TextChanged"/>
-                    <TextBox x:Name="txtYahtzee" Height="16" TextWrapping="Wrap" FontSize="9" HorizontalAlignment="Center" Width="113" TextAlignment="Center" PreviewTextInput="NumberValidationTextBox" TextChanged="txtYahtzee_TextChanged"/>
-                    <TextBox x:Name="txtChance" Height="16" TextWrapping="Wrap" FontSize="9" HorizontalAlignment="Center" Width="113" TextAlignment="Center" PreviewTextInput="NumberValidationTextBox" TextChanged="txtChance_TextChanged"/>
+                    <TextBox x:Name="txtToaK" Height="16" TextWrapping="Wrap" FontSize="9" HorizontalAlignment="Center" Width="113" TextAlignment="Center" PreviewTextInput="NumberValidationTextBox" LostFocus="txtToaK_LostFocus"/>
+                    <TextBox x:Name="txtFoaK" Height="16" TextWrapping="Wrap" FontSize="9" HorizontalAlignment="Center" Width="113" TextAlignment="Center" PreviewTextInput="NumberValidationTextBox" LostFocus="txtFoaK_LostFocus"/>
+                    <TextBox x:Name="txtFH" Height="16" TextWrapping="Wrap" FontSize="9" HorizontalAlignment="Center" Width="113" TextAlignment="Center" PreviewTextInput="NumberValidationTextBox" LostFocus="txtFH_LostFocus"/>
+                    <TextBox x:Name="txtSmall" Height="16" TextWrapping="Wrap" FontSize="9" HorizontalAlignment="Center" Width="113" TextAlignment="Center" PreviewTextInput="NumberValidationTextBox" LostFocus="txtSmall_LostFocus"/>
+                    <TextBox x:Name="txtLarge" Height="16" TextWrapping="Wrap" FontSize="9" HorizontalAlignment="Center" Width="113" TextAlignment="Center" PreviewTextInput="NumberValidationTextBox" LostFocus="txtLarge_LostFocus"/>
+                    <TextBox x:Name="txtYahtzee" Height="16" TextWrapping="Wrap" FontSize="9" HorizontalAlignment="Center" Width="113" TextAlignment="Center" PreviewTextInput="NumberValidationTextBox" LostFocus="txtYahtzee_LostFocus"/>
+                    <TextBox x:Name="txtChance" Height="16" TextWrapping="Wrap" FontSize="9" HorizontalAlignment="Center" Width="113" TextAlignment="Center" PreviewTextInput="NumberValidationTextBox" LostFocus="txtChance_LostFocus"/>
                 </StackPanel>
                 <GridSplitter HorizontalAlignment="Left" Height="112" Margin="174,133,0,0" VerticalAlignment="Top" Width="0"/>
                 <StackPanel HorizontalAlignment="Left" Height="111" Margin="179,133,0,0" VerticalAlignment="Top" Width="38">

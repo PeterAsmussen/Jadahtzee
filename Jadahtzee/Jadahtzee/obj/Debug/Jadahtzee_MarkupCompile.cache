@@ -10,11 +10,11 @@ none
 false
 DEBUG;TRACE
 C:\Source\Jadahtzee\Jadahtzee\Jadahtzee\App.xaml
-21305152579
+4-1483722551
 
-9-1428661931
+14-389220616
 14-282049662
-PlayerControl.xaml;YahtzeeWindow.xaml;
+GameOver.xaml;Highscores.xaml;PlayerControl.xaml;YahtzeeWindow.xaml;
 
 False
 

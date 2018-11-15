@@ -58,6 +58,14 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Page Include="GameOver.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Highscores.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="PlayerControl.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -70,6 +78,15 @@
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="GameOver.xaml.cs">
+      <DependentUpon>GameOver.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Highscores.xaml.cs">
+      <DependentUpon>Highscores.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="HiHi\Highscores.cs" />
+    <Compile Include="HiHi\History.cs" />
+    <Compile Include="HiHi\IO.cs" />
     <Compile Include="Logic\Game.cs" />
     <Compile Include="Logic\GameLogic.cs" />
     <Compile Include="Logic\Player.cs" />

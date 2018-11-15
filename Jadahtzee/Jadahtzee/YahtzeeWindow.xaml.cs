@@ -1,11 +1,8 @@
 ﻿using Jadahtzee.Logic;
-using System;
 using System.Collections.Generic;
 using System.Text.RegularExpressions;
 using System.Windows;
-using System.Windows.Controls;
 using System.Windows.Input;
-using System.Windows.Media.Imaging;
 
 namespace Jadahtzee
 {
@@ -16,7 +13,7 @@ namespace Jadahtzee
     {
         private Game game;
 
-        private List<Player> playersToAdd;
+        private static List<Player> playersToAdd;
 
         private List<PlayerControl> playerControllers;
 
@@ -26,8 +23,37 @@ namespace Jadahtzee
 
             this.ResetWindowSize();
 
-            this.playersToAdd = new List<Player>();
+            playersToAdd = new List<Player>();
             this.playerControllers = new List<PlayerControl>();
+        }
+
+        /// <summary>
+        /// Handles what happens when game is over.
+        /// </summary>
+        public static void IsGameOver()
+        {
+            var index = 0;
+            var highestScore = 0;
+            var winner = string.Empty;
+            foreach(var player in playersToAdd)
+            {
+                var score = player.ScoreTotal;
+                if (score > 0)
+                {
+                    index++;
+
+                    if (score > highestScore)
+                    {
+                        highestScore = score;
+                        winner = player.Name;
+                    }
+                }
+            }
+
+            if (index == playersToAdd.Count)
+            {
+                new GameOver(new KeyValuePair<int, string>(highestScore, winner));
+            }
         }
 
         /// <summary>
@@ -54,7 +80,6 @@ namespace Jadahtzee
             foreach (var player in players)
             {
                 var x = index * 240;
-
                 if (index == 4)
                 {
                     y += 305;
@@ -84,6 +109,10 @@ namespace Jadahtzee
                     this.Height = 800;
                 }
             }
+            else if (players == 1)
+            {
+                this.Width = 260;
+            }
             else
             {
                 this.Width = (250 * players) + (2 * players);
@@ -102,6 +131,29 @@ namespace Jadahtzee
             this.Width = this.MinWidth = this.MaxWidth = 350;
         }
 
+        /// <summary>
+        /// Sets the window when a new game is initiated.
+        /// </summary>
+        /// <param name="isFromMenu">Is the buttonpress from the options menu</param>
+        private void InitWindow(bool isFromMenu)
+        {
+            switch (isFromMenu)
+            {
+                case true:
+                    this.cnvNewGame.Visibility = Visibility.Visible;
+                    this.expOptions.IsExpanded = false;
+                    this.cnvMain.Children.RemoveRange(0, playersToAdd.Count);
+                    this.ResetWindowSize();
+                    break;
+                case false:
+                    this.DrawPlayerOnCanvas(playersToAdd);
+                    this.SetWindowSize(this.playerControllers.Count);
+                    this.game = new Game(playersToAdd);
+                    this.cnvNewGame.Visibility = Visibility.Hidden;
+                    break;
+            }
+        }
+
         #region Button handlers
         private void btnNewGame_Click(object sender, RoutedEventArgs e)
         {
@@ -113,10 +165,7 @@ namespace Jadahtzee
 
             if (result == MessageBoxResult.Yes)
             {
-                this.cnvNewGame.Visibility = Visibility.Visible;
-                this.expOptions.IsExpanded = false;
-                this.cnvMain.Children.RemoveRange(0, this.playersToAdd.Count);
-                this.ResetWindowSize();
+                this.InitWindow(true);
             }
         }
 
@@ -125,15 +174,13 @@ namespace Jadahtzee
             var input = this.txtNewGame.Text;
             if (input != string.Empty)
             {
-                for (int i = 1; i <= Int32.Parse(input); i++)
+                for (int i = 1; i <= GameLogic.TryParse(input); i++)
                 {
-                    var name = Microsoft.VisualBasic.Interaction.InputBox($"Enter a name for player {i}!","Names","[name goes here]");
+                    var name = Microsoft.VisualBasic.Interaction.InputBox($"Enter a name for player {i}!","Names", $"Player{i}");
                     playersToAdd.Add(new Player(name.ToString()));
                 }
 
-                this.DrawPlayerOnCanvas(playersToAdd);
-                this.game = new Game(playersToAdd);
-                this.cnvNewGame.Visibility = Visibility.Hidden;
+                this.InitWindow(false);
             }
         }
 
@@ -143,6 +190,11 @@ namespace Jadahtzee
             {
                 control.Reset();
             }
+        }
+
+        private void btnHighscores_Click(object sender, RoutedEventArgs e)
+        {
+            new Highscores();
         }
         #endregion
     }

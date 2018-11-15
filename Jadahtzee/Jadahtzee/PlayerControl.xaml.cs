@@ -11,13 +11,21 @@ namespace Jadahtzee
     /// </summary>
     public partial class PlayerControl : UserControl
     {
+        private Logic.Player player;
+        
         public PlayerControl(double x, double y, Logic.Player player)
         {
             InitializeComponent();
             this.RenderTransform = this.Transform(x, y);
             this.grpbPlayer.Header = player.Name;
+            this.player = player;
         }
 
+        public bool IsDoneUpper { get; set; }
+
+        /// <summary>
+        /// Resets the player on the current game.
+        /// </summary>
         public void Reset()
         {
             Logic.GameLogic.ResetPlayer(this);
@@ -69,6 +77,7 @@ namespace Jadahtzee
 
             if (Logic.GameLogic.IsDoneUpper(this))
             {
+                this.IsDoneUpper = true;
                 Logic.GameLogic.SumAllUpper(this);
                 Logic.GameLogic.ApplyBonus(this);
                 this.ProcessLower();
@@ -87,32 +96,32 @@ namespace Jadahtzee
         }
 
         #region Textbox handling for upper region
-        private void txtAces_TextChanged(object sender, TextChangedEventArgs e)
+        private void txtAces_LostFocus(object sender, System.Windows.RoutedEventArgs e)
         {
             this.ProcessUpper();
         }
 
-        private void txtTwos_TextChanged(object sender, TextChangedEventArgs e)
+        private void txtTwos_LostFocus(object sender, System.Windows.RoutedEventArgs e)
         {
             this.ProcessUpper();
         }
 
-        private void txtThrees_TextChanged(object sender, TextChangedEventArgs e)
+        private void txtThrees_LostFocus(object sender, System.Windows.RoutedEventArgs e)
         {
             this.ProcessUpper();
         }
 
-        private void txtFours_TextChanged(object sender, TextChangedEventArgs e)
+        private void txtFours_LostFocus(object sender, System.Windows.RoutedEventArgs e)
         {
             this.ProcessUpper();
         }
 
-        private void txtFives_TextChanged(object sender, TextChangedEventArgs e)
+        private void txtFives_LostFocus(object sender, System.Windows.RoutedEventArgs e)
         {
             this.ProcessUpper();
         }
 
-        private void txtSixes_TextChanged(object sender, TextChangedEventArgs e)
+        private void txtSixes_LostFocus(object sender, System.Windows.RoutedEventArgs e)
         {
             this.ProcessUpper();
         }
@@ -120,40 +129,87 @@ namespace Jadahtzee
         #endregion
 
         #region Textbox handling for total score
-        private void txtToaK_TextChanged(object sender, TextChangedEventArgs e)
+        private void txtToaK_LostFocus(object sender, System.Windows.RoutedEventArgs e)
         {
             this.ProcessLower();
+
+            if (Logic.GameLogic.IsPlayerFinished(this))
+            {
+                this.player.ScoreTotal = Logic.GameLogic.TryParse(this.txtTotal.Text);
+                this.IsEnabled = false;
+            }
         }
 
-        private void txtFoaK_TextChanged(object sender, TextChangedEventArgs e)
+        private void txtFoaK_LostFocus(object sender, System.Windows.RoutedEventArgs e)
         {
             this.ProcessLower();
+
+            if (Logic.GameLogic.IsPlayerFinished(this))
+            {
+                this.player.ScoreTotal = Logic.GameLogic.TryParse(this.txtTotal.Text);
+                this.IsEnabled = false;
+            }
         }
 
-        private void txtFH_TextChanged(object sender, TextChangedEventArgs e)
+        private void txtFH_LostFocus(object sender, System.Windows.RoutedEventArgs e)
         {
             this.ProcessLower();
+
+            if (Logic.GameLogic.IsPlayerFinished(this))
+            {
+                this.player.ScoreTotal = Logic.GameLogic.TryParse(this.txtTotal.Text);
+                this.IsEnabled = false;
+            }
         }
 
-        private void txtSmall_TextChanged(object sender, TextChangedEventArgs e)
+        private void txtSmall_LostFocus(object sender, System.Windows.RoutedEventArgs e)
         {
             this.ProcessLower();
+
+            if (Logic.GameLogic.IsPlayerFinished(this))
+            {
+                this.player.ScoreTotal = Logic.GameLogic.TryParse(this.txtTotal.Text);
+                this.IsEnabled = false;
+            }
         }
 
-        private void txtLarge_TextChanged(object sender, TextChangedEventArgs e)
+        private void txtLarge_LostFocus(object sender, System.Windows.RoutedEventArgs e)
         {
             this.ProcessLower();
+
+            if (Logic.GameLogic.IsPlayerFinished(this))
+            {
+                this.player.ScoreTotal = Logic.GameLogic.TryParse(this.txtTotal.Text);
+                this.IsEnabled = false;
+            }
         }
 
-        private void txtYahtzee_TextChanged(object sender, TextChangedEventArgs e)
+        private void txtYahtzee_LostFocus(object sender, System.Windows.RoutedEventArgs e)
         {
             this.ProcessLower();
+
+            if (Logic.GameLogic.IsPlayerFinished(this))
+            {
+                this.player.ScoreTotal = Logic.GameLogic.TryParse(this.txtTotal.Text);
+                this.IsEnabled = false;
+            }
         }
 
-        private void txtChance_TextChanged(object sender, TextChangedEventArgs e)
+        private void txtChance_LostFocus(object sender, System.Windows.RoutedEventArgs e)
         {
             this.ProcessLower();
+
+            if (Logic.GameLogic.IsPlayerFinished(this))
+            {
+                this.player.ScoreTotal = Logic.GameLogic.TryParse(this.txtTotal.Text);
+                this.IsEnabled = false;
+            }
         }
         #endregion
+
+        private void ucPlayer_IsEnabledChanged(object sender, System.Windows.DependencyPropertyChangedEventArgs e)
+        {
+            YahtzeeWindow.IsGameOver();
+        }
     }
 }

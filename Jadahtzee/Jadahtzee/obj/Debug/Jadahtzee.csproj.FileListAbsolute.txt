@@ -15,3 +15,7 @@ C:\Source\Jadahtzee\Jadahtzee\Jadahtzee\obj\Debug\YahtzeeWindow.g.cs
 C:\Source\Jadahtzee\Jadahtzee\Jadahtzee\obj\Debug\YahtzeeWindow.baml
 C:\Source\Jadahtzee\Jadahtzee\Jadahtzee\obj\Debug\PlayerControl.g.cs
 C:\Source\Jadahtzee\Jadahtzee\Jadahtzee\obj\Debug\PlayerControl.baml
+C:\Source\Jadahtzee\Jadahtzee\Jadahtzee\obj\Debug\Highscores.g.cs
+C:\Source\Jadahtzee\Jadahtzee\Jadahtzee\obj\Debug\Highscores.baml
+C:\Source\Jadahtzee\Jadahtzee\Jadahtzee\obj\Debug\GameOver.g.cs
+C:\Source\Jadahtzee\Jadahtzee\Jadahtzee\obj\Debug\GameOver.baml

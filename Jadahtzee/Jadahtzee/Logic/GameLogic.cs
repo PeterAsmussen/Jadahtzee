@@ -11,7 +11,7 @@ namespace Jadahtzee.Logic
         /// </summary>
         /// <param name="input"></param>
         /// <returns>The parsed value.</returns>
-        private static int TryParse(string input)
+        public static int TryParse(string input)
         {
             if (Int32.TryParse(input, out int result))
             {
@@ -107,6 +107,22 @@ namespace Jadahtzee.Logic
             }
 
             player.txtBonus.Text = "";
+        }
+
+        /// <summary>
+        /// Determines whether the player is done or not
+        /// </summary>
+        /// <param name="player"></param>
+        /// <returns></returns>
+        public static bool IsPlayerFinished(PlayerControl player)
+        {
+            return (player.IsDoneUpper &&
+                !string.IsNullOrEmpty(player.txtToaK.Text) &&
+                !string.IsNullOrEmpty(player.txtFoaK.Text) &&
+                !string.IsNullOrEmpty(player.txtSmall.Text) &&
+                !string.IsNullOrEmpty(player.txtLarge.Text) &&
+                !string.IsNullOrEmpty(player.txtYahtzee.Text) &&
+                !string.IsNullOrEmpty(player.txtChance.Text));
         }
 
         /// <summary>
