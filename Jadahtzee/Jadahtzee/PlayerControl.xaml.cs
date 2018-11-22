@@ -22,6 +22,8 @@ namespace Jadahtzee
         }
 
         public bool IsDoneUpper { get; set; }
+        
+        public double PlayerWidth { get { return this.Width; } }
 
         /// <summary>
         /// Resets the player on the current game.
@@ -30,7 +32,7 @@ namespace Jadahtzee
         {
             Logic.GameLogic.ResetPlayer(this);
         }
-
+        
         /// <summary>
         /// Sets the dimensions of the player control.
         /// </summary>

@@ -1,5 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 
 namespace Jadahtzee.HiHi
 {
@@ -21,7 +20,7 @@ namespace Jadahtzee.HiHi
         internal void WriteToFile(KeyValuePair<int, string> newWinner)
         {
             this.NewHistory(newWinner);
-            io.WriteHistory(this.currenthistory);
+            io.Write(this.currenthistory, 1);
         }
 
         /// <summary>
@@ -34,7 +33,7 @@ namespace Jadahtzee.HiHi
             List<KeyValuePair<int, string>> currentContents;
             try
             {
-                currentContents = this.io.GetHistory();
+                currentContents = this.io.GetEntries(1);
             }
             catch (System.IO.FileNotFoundException e)
             {

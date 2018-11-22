@@ -11,7 +11,7 @@ namespace Jadahtzee.HiHi
         public Highscores(IO io)
         {
             this.io = io;
-             this.currenthighScores = this.GetHighscores();
+            this.currenthighScores = this.GetHighscores();
         }
 
         /// <summary>
@@ -21,7 +21,7 @@ namespace Jadahtzee.HiHi
         internal void WriteToFile(KeyValuePair<int, string> newWinner)
         {
             this.NewHighscore(newWinner);
-            this.io.WriteHighscore(this.currenthighScores);
+            this.io.Write(this.currenthighScores, 2);
         }
 
 
@@ -35,7 +35,7 @@ namespace Jadahtzee.HiHi
             List<KeyValuePair<int, string>> currentContents;
             try
             {
-                currentContents = this.io.GetHighscores();
+                currentContents = this.io.GetEntries(2);
             }
             catch(System.IO.FileNotFoundException e)
             {
@@ -66,14 +66,21 @@ namespace Jadahtzee.HiHi
 
             if (this.currenthighScores.Count > 4)
             {
+                var temp = new KeyValuePair<int, string>();
+                var index = 0;
                 foreach (var high in this.currenthighScores)
                 {
                     if (highScore.Key > high.Key)
                     {
-                        var index = this.currenthighScores.IndexOf(high);
-                        this.currenthighScores.RemoveAt(index);
-                        this.currenthighScores.Insert(index, highScore);
+                        temp = highScore;
+                        index = this.currenthighScores.IndexOf(high);
                     }
+                }
+
+                if (index > 0)
+                {
+                    this.currenthighScores.RemoveAt(index);
+                    this.currenthighScores.Insert(index, highScore);
                 }
             }
             else

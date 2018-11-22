@@ -21,7 +21,7 @@ namespace Jadahtzee
         {
             InitializeComponent();
 
-            this.ResetWindowSize();
+            this.DefaultWindowSize();
 
             playersToAdd = new List<Player>();
             this.playerControllers = new List<PlayerControl>();
@@ -77,14 +77,14 @@ namespace Jadahtzee
 
             var index = 0;
             var y = this.expOptions.Height + 20;
+            
             foreach (var player in players)
             {
-                var x = index * 240;
                 if (index == 4)
                 {
                     y += 305;
                     index -= 4;
-                    x = index * 230;
+                    x += this.cnvMain.Width;
                 }
 
                 var playerControl = new PlayerControl(x, y, player);
@@ -111,7 +111,8 @@ namespace Jadahtzee
             }
             else if (players == 1)
             {
-                this.Width = 260;
+                // just place the player, but I really think this should be done properly tbh.
+                this.DefaultWindowSize();
             }
             else
             {
@@ -125,7 +126,7 @@ namespace Jadahtzee
         /// <summary>
         /// Resets the window size to the default.
         /// </summary>
-        private void ResetWindowSize()
+        private void DefaultWindowSize()
         {
             this.Height = this.MinHeight = this.MaxHeight = 500;
             this.Width = this.MinWidth = this.MaxWidth = 350;
@@ -143,11 +144,13 @@ namespace Jadahtzee
                     this.cnvNewGame.Visibility = Visibility.Visible;
                     this.expOptions.IsExpanded = false;
                     this.cnvMain.Children.RemoveRange(0, playersToAdd.Count);
-                    this.ResetWindowSize();
+                    this.playerControllers.Clear();
+                    playersToAdd.Clear();
+                    this.DefaultWindowSize();
                     break;
                 case false:
-                    this.DrawPlayerOnCanvas(playersToAdd);
                     this.SetWindowSize(this.playerControllers.Count);
+                    this.DrawPlayerOnCanvas(playersToAdd);
                     this.game = new Game(playersToAdd);
                     this.cnvNewGame.Visibility = Visibility.Hidden;
                     break;
@@ -172,7 +175,11 @@ namespace Jadahtzee
         private void btn2NewGame_Click(object sender, RoutedEventArgs e)
         {
             var input = this.txtNewGame.Text;
-            if (input != string.Empty)
+            if (GameLogic.TryParse(input) > 8)
+            {
+                MessageBox.Show("A maximum of 8 players are allowed. Sorry :(");
+            }
+            else if (input != string.Empty)
             {
                 for (int i = 1; i <= GameLogic.TryParse(input); i++)
                 {
@@ -189,6 +196,7 @@ namespace Jadahtzee
             foreach (var control in this.playerControllers)
             {
                 control.Reset();
+                control.IsEnabled = true;
             }
         }
 

@@ -7,7 +7,7 @@
              mc:Ignorable="d" 
              Height="300"
              Width="230">
-    <Grid x:Name="ucPlayer" IsEnabledChanged="ucPlayer_IsEnabledChanged">
+    <Grid x:Name="ucPlayer" IsEnabledChanged="ucPlayer_IsEnabledChanged" Width="230" Height="300">
         <GroupBox x:Name="grpbPlayer" Header="playe" HorizontalAlignment="Left" Height="300" VerticalAlignment="Top" Width="229" BorderBrush="#FF000306">
             <Grid Margin="0,5,0,-1">
                 <StackPanel x:Name="stkpPairs" HorizontalAlignment="Left" Height="98" VerticalAlignment="Top" Width="60">

@@ -8,7 +8,7 @@ namespace Jadahtzee.HiHi
     {
         private static string directory = "C:\\ProgramData\\Jadahtzee";
         private static string historyFile = "\\History.txt";
-        private static string highscoresFile = "\\Highscores.txt";
+        private static string highscoreFile = "\\Highscores.txt";
 
         public IO()
         {
@@ -32,7 +32,7 @@ namespace Jadahtzee.HiHi
                 }
             }
 
-            var highscores = directory + highscoresFile;
+            var highscores = directory + highscoreFile;
             if (!File.Exists(highscores))
             {
                 using (var writer = new StreamWriter(highscores, true))
@@ -42,82 +42,70 @@ namespace Jadahtzee.HiHi
         }
 
         /// <summary>
-        /// Gets the history
+        /// Gets the entries based on the parameter
         /// </summary>
-        /// <returns>The history</returns>
-        public List<KeyValuePair<int, string>> GetHistory()
+        /// <param name="fileName">The filename</param>
+        /// <returns>The entries</returns>
+        public List<KeyValuePair<int, string>> GetEntries(int getFrom)
         {
-            var historyList = new List<string>();
-            var history = new List<KeyValuePair<int, string>>();
-            using (var stream = new StreamReader(directory + historyFile))
+            var fileName = "";
+            switch (getFrom)
             {
-                while (stream.Read() > 0)
-                {
-                    historyList.Add(stream.ReadLine());
-                }
-            }
-            foreach (var hist in historyList)
-            {
-                var s = hist.Split(':');
-                history.Add(new KeyValuePair<int, string>(Int32.Parse(s[0]), s[1]));
+                case 1:
+                    fileName = historyFile;
+                    break;
+                case 2:
+                    fileName = highscoreFile;
+                    break;
+                default:
+                    return null;
             }
 
-            return history;
-        }
-
-        /// <summary>
-        /// Gets the highscores
-        /// </summary>
-        /// <returns>The highscores</returns>
-        public List<KeyValuePair<int, string>> GetHighscores()
-        {
-            var scoresList = new List<string>();
-            var scores = new List<KeyValuePair<int, string>>();
-            using (var stream = new StreamReader(directory + highscoresFile))
+            var list = new List<string>();
+            var entries = new List<KeyValuePair<int, string>>();
+            using (var stream = new StreamReader(directory + fileName))
             {
                 while(stream.Read() > 0)
                 {
-                    scoresList.Add(stream.ReadLine());
+                    list.Add(stream.ReadLine());
+                }
+
+                foreach(var entry in list)
+                {
+                    var split = entry.Split(':');
+                    entries.Add(new KeyValuePair<int, string>(Int32.Parse(split[0]), split[1]));
                 }
             }
-
-            foreach(var score in scoresList)
-            {
-                var s = score.Split(':');
-                scores.Add(new KeyValuePair<int, string>(Int32.Parse(s[0]), s[1]));
-            }
-
-            return scores;
+            
+            return entries;
         }
 
         /// <summary>
-        /// Writes the history
+        /// Writes the new entry
         /// </summary>
-        /// <param name="history">The history</param>
-        public void WriteHistory(List<KeyValuePair<int, string>> history)
+        /// <param name="entry">The entry</param>
+        /// <param name="fileName">The file name</param>
+        public void Write(List<KeyValuePair<int, string>> entry, int writeTo)
         {
-            history.Sort((x, y) => x.Key.CompareTo(y.Key));
-            using (var writer = new StreamWriter(directory + historyFile))
+            var fileName = "";
+            switch (writeTo)
             {
-                foreach (var line in history)
-                {
-                    writer.WriteLine($"{line.Key}:{line.Value}");
-                }
+                case 1:
+                    fileName = historyFile;
+                    break;
+                case 2:
+                    fileName = highscoreFile;
+                    break;
+                default:
+                    return;
             }
-        }
 
-        /// <summary>
-        /// Writes the highscore
-        /// </summary>
-        /// <param name="highscore">The highscore</param>
-        public void WriteHighscore(List<KeyValuePair<int, string>> highscore)
-        {
-            highscore.Sort((x, y) => x.Key.CompareTo(y.Key));
-            using(var writer = new StreamWriter(directory + highscoresFile))
+            entry.Sort((x, y) => x.Key.CompareTo(y.Key));
+            using (var writer = new StreamWriter(directory + fileName))
             {
-                foreach (var line in highscore)
+                foreach (var line in entry)
                 {
-                    writer.WriteLine($"{line.Key}:{line.Value}");
+                    writer.WriteLine($" {line.Key}:{line.Value}");
                 }
             }
         }
