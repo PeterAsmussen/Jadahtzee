@@ -5,8 +5,14 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Jadahtzee"
         mc:Ignorable="d"
-        Title="Jadahtzee!" Height="900" Width="1200">
+        Title="Jadahtzee!" Height="500" Width="250">
     <Grid x:Name="gridMain">
+        <Grid.Background>
+            <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                <GradientStop Color="#FFE3BAAF" Offset="0"/>
+                <GradientStop Color="White" Offset="1"/>
+            </LinearGradientBrush>
+        </Grid.Background>
         <Canvas x:Name="cnvNewGame" HorizontalAlignment="Center" Height="102" VerticalAlignment="Center" Width="178">
             <TextBox x:Name="txtNewGame" HorizontalAlignment="Left" Height="23" TextWrapping="Wrap" VerticalAlignment="Top" Width="32" PreviewTextInput="NumberValidationTextBox" Canvas.Left="46" Canvas.Top="54"/>
             <Button x:Name="btn2NewGame" Content="Go!" HorizontalAlignment="Left" VerticalAlignment="Top" Width="45" Height="23" Canvas.Left="82" Canvas.Top="54" Click="btn2NewGame_Click"/>
@@ -20,7 +26,7 @@
                 <Button x:Name="btnHighscores" Content="Highscores" HorizontalAlignment="Left" Margin="7,55,0,0" VerticalAlignment="Top" Width="88" Click="btnHighscores_Click"/>
             </Grid>
         </Expander>
-        <Canvas x:Name="cnvMain" HorizontalAlignment="Left" Height="849" Margin="10,10,0,0" VerticalAlignment="Top" Width="1172"/>
+        <Canvas x:Name="cnvMain" HorizontalAlignment="Left" Height="449" Margin="10,10,0,0" VerticalAlignment="Top" Width="222"/>
         <Image Height="90" Width="200" HorizontalAlignment="Center" VerticalAlignment="Top">
             <Image.Source>
                 <ImageSource>Resources/Yahtzee-logo.png</ImageSource>

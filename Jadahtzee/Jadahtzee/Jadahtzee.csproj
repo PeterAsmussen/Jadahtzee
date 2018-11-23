@@ -130,5 +130,13 @@
   <ItemGroup>
     <Resource Include="Resources\yahtzee-icon.ico" />
   </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Trophy-bronze.png" />
+    <Resource Include="Resources\Trophy-gold.png" />
+    <Resource Include="Resources\Trophy-silver.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\highscore.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

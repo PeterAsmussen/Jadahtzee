@@ -20,15 +20,13 @@ namespace Jadahtzee
         public YahtzeeWindow()
         {
             InitializeComponent();
-
             this.DefaultWindowSize();
-
             playersToAdd = new List<Player>();
             this.playerControllers = new List<PlayerControl>();
         }
 
         /// <summary>
-        /// Handles what happens when game is over.
+        /// Determines if the game is over or not.
         /// </summary>
         public static void IsGameOver()
         {
@@ -77,17 +75,17 @@ namespace Jadahtzee
 
             var index = 0;
             var y = this.expOptions.Height + 20;
+            var template = new PlayerControl();
             
             foreach (var player in players)
             {
                 if (index == 4)
                 {
-                    y += 305;
+                    y += template.PlayerHeight + 10;
                     index -= 4;
-                    x += this.cnvMain.Width;
                 }
 
-                var playerControl = new PlayerControl(x, y, player);
+                var playerControl = new PlayerControl(template.PlayerWidth*index, y, player);
                 this.playerControllers.Add(playerControl);
                 this.cnvMain.Children.Add(playerControl);
                 index += 1;
@@ -111,7 +109,6 @@ namespace Jadahtzee
             }
             else if (players == 1)
             {
-                // just place the player, but I really think this should be done properly tbh.
                 this.DefaultWindowSize();
             }
             else
@@ -129,7 +126,7 @@ namespace Jadahtzee
         private void DefaultWindowSize()
         {
             this.Height = this.MinHeight = this.MaxHeight = 500;
-            this.Width = this.MinWidth = this.MaxWidth = 350;
+            this.Width = this.MinWidth = this.MaxWidth = 265;
         }
 
         /// <summary>
@@ -149,7 +146,7 @@ namespace Jadahtzee
                     this.DefaultWindowSize();
                     break;
                 case false:
-                    this.SetWindowSize(this.playerControllers.Count);
+                    this.SetWindowSize(playersToAdd.Count);
                     this.DrawPlayerOnCanvas(playersToAdd);
                     this.game = new Game(playersToAdd);
                     this.cnvNewGame.Visibility = Visibility.Hidden;
@@ -202,7 +199,7 @@ namespace Jadahtzee
 
         private void btnHighscores_Click(object sender, RoutedEventArgs e)
         {
-            new Highscores();
+            new Highscores().Show();
         }
         #endregion
     }

@@ -4,7 +4,7 @@ namespace Jadahtzee.HiHi
 {
     public class History
     {
-        private List<KeyValuePair<int, string>> currenthistory;
+        public List<KeyValuePair<int, string>> currenthistory;
         private IO io;
 
         public History(IO io)

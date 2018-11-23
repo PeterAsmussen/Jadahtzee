@@ -13,6 +13,17 @@ namespace Jadahtzee
     {
         private Logic.Player player;
         
+        /// <summary>
+        /// Constructor for initializing the size of the user control.
+        /// </summary>
+        public PlayerControl() { this.Height = 300; this.Width = 240; }
+
+        /// <summary>
+        /// Constructor for initializing the user control objects that will be used in the game.
+        /// </summary>
+        /// <param name="x">The x position</param>
+        /// <param name="y">The y position</param>
+        /// <param name="player">The name</param>
         public PlayerControl(double x, double y, Logic.Player player)
         {
             InitializeComponent();
@@ -24,6 +35,8 @@ namespace Jadahtzee
         public bool IsDoneUpper { get; set; }
         
         public double PlayerWidth { get { return this.Width; } }
+
+        public double PlayerHeight { get { return this.Height; } }
 
         /// <summary>
         /// Resets the player on the current game.

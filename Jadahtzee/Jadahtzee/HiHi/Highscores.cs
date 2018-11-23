@@ -5,7 +5,7 @@ namespace Jadahtzee.HiHi
 {
     public class Highscores
     {
-        private List<KeyValuePair<int, string>> currenthighScores;
+        public List<KeyValuePair<int, string>> currenthighScores;
         private IO io;
 
         public Highscores(IO io)
