@@ -17,22 +17,22 @@
         </GroupBox>
         <GroupBox x:Name="grpbHighscores" Header="All time highscores" HorizontalAlignment="Left" Height="132" Margin="10,10,10,10" VerticalAlignment="Top" Width="280" FontWeight="Bold">
             <Grid HorizontalAlignment="Left" Height="111" Margin="-5,0,-7,-1" VerticalAlignment="Top" Width="280">
-                <Image x:Name="imgGold" Height="18" Width="18" HorizontalAlignment="Center" VerticalAlignment="Top" Margin="62,5,199,0">
+                <Image x:Name="imgGold" Height="18" Width="18" HorizontalAlignment="Center" VerticalAlignment="Top" Margin="41,5,221,0">
                     <Image.Source>
                         <ImageSource>Resources/Trophy-gold.png</ImageSource>
                     </Image.Source>
                 </Image>
-                <Image x:Name="imgSilver" Height="18" Width="18" HorizontalAlignment="Center" VerticalAlignment="Top" Margin="62,25,199,0">
+                <Image x:Name="imgSilver" Height="18" Width="18" HorizontalAlignment="Center" VerticalAlignment="Top" Margin="41,25,221,0">
                     <Image.Source>
                         <ImageSource>Resources/Trophy-silver.png</ImageSource>
                     </Image.Source>
                 </Image>
-                <Image x:Name="imgBronze" Height="18" Width="18" HorizontalAlignment="Center" VerticalAlignment="Top" Margin="62,45,199,0">
+                <Image x:Name="imgBronze" Height="18" Width="18" HorizontalAlignment="Center" VerticalAlignment="Top" Margin="41,45,221,0">
                     <Image.Source>
                         <ImageSource>Resources/Trophy-bronze.png</ImageSource>
                     </Image.Source>
                 </Image>
-                <Grid x:Name="gridHigh" HorizontalAlignment="Center" Height="105" Margin="86,0,96,0" VerticalAlignment="Top" Width="98"/>
+                <Grid x:Name="gridHigh" HorizontalAlignment="Center" Height="105" Margin="62,2,73,0" VerticalAlignment="Top" Width="145"/>
                 <Image x:Name="imgMan" Height="78" Width="74" HorizontalAlignment="Center" VerticalAlignment="Top" Margin="213,-3,-7,0">
                     <Image.Source>
                         <ImageSource>Resources/highscore.png</ImageSource>

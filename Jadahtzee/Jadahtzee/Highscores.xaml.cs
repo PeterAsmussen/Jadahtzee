@@ -31,14 +31,23 @@ namespace Jadahtzee
         /// </summary>
         private void FillHighscores()
         {
-            var xMargin = 5.00;
             var entries = this.highscores.currenthighScores;
-            entries.Reverse();
-            foreach(var entry in entries)
+            var xMargin = 5.00;
+            if (entries == null)
             {
-                var txt = this.CreateAlignAndFill(entry.Key.ToString(), entry.Value, true, xMargin);
-                this.gridHigh.Children.Add(txt);
-                xMargin += 20;
+                this.gridHigh.Children.Add(this.CreateAlignAndFill("Sorry", "No scores yet :(", true, xMargin));
+                this.Trophies(0);
+            }
+            else
+            {
+                entries.Reverse();
+                foreach (var entry in entries)
+                {
+                    this.gridHigh.Children.Add(this.CreateAlignAndFill(entry.Key.ToString(), entry.Value, true, xMargin));
+                    xMargin += 20;
+                }
+
+                this.Trophies(entries.Count);
             }
         }
 
@@ -47,13 +56,22 @@ namespace Jadahtzee
         /// </summary>
         private void FillHistory()
         {
-            var xMargin = 5.00;
             var entries = this.history.currenthistory;
-            foreach (var entry in entries)
+            var xMargin = 5.00;
+            if (entries == null)
             {
-                var txt = this.CreateAlignAndFill(entry.Key.ToString(), entry.Value, false, xMargin);
-                this.gridHist.Children.Add(txt);
-                xMargin += 20;
+                this.gridHist.Children.Add(this.CreateAlignAndFill("Sorry", "No history yet :(", true, xMargin));
+                this.Trophies(0);
+            }
+            else
+            {
+                foreach (var entry in entries)
+                {
+                    this.gridHist.Children.Add(this.CreateAlignAndFill(entry.Key.ToString(), entry.Value, false, xMargin));
+                    xMargin += 20;
+                }
+
+                this.Trophies(entries.Count);
             }
         }
 
@@ -65,14 +83,14 @@ namespace Jadahtzee
         /// <param name="isHighscore">Highscore if true, history if false</param>
         /// <param name="xMargin">The x margin</param>
         /// <returns>A <see cref="TextBlock"/></returns>
-        private TextBlock CreateAlignAndFill(string score, string name, bool isHighscore, double xMargin)
+        private TextBlock CreateAlignAndFill(string score, string name, bool center, double xMargin)
         {
             var txt = new TextBlock
             {
                 Text = $"{score} - {name}",
-                HorizontalAlignment = isHighscore ? HorizontalAlignment.Center : HorizontalAlignment.Left,
+                HorizontalAlignment = center ? HorizontalAlignment.Center : HorizontalAlignment.Left,
                 VerticalAlignment = VerticalAlignment.Top,
-                Margin = isHighscore ? new Thickness(0.00, xMargin, 0.00, 0.00) : new Thickness(xMargin == 85.00 ? 127.00 : 2.00, xMargin, 0.00, 0.00)
+                Margin = center ? new Thickness(0.00, xMargin, 0.00, 0.00) : new Thickness(xMargin == 85.00 ? 127.00 : 2.00, xMargin, 0.00, 0.00)
             };
             
             return txt;
@@ -84,18 +102,24 @@ namespace Jadahtzee
         /// <param name="entries">The logged scores</param>
         private void Trophies(int entries)
         {
-            this.imgGold.Visibility = Visibility.Visible;
-            this.imgSilver.Visibility = Visibility.Visible;
-            this.imgBronze.Visibility = Visibility.Visible;
-
             switch (entries)
             {
+                case 0:
+                    this.imgGold.Visibility = Visibility.Hidden;
+                    this.imgSilver.Visibility = Visibility.Hidden;
+                    this.imgBronze.Visibility = Visibility.Hidden;
+                    break;
                 case 1:
                     this.imgSilver.Visibility = Visibility.Hidden;
                     this.imgBronze.Visibility = Visibility.Hidden;
                     break;
                 case 2:
                     this.imgBronze.Visibility = Visibility.Hidden;
+                    break;
+                default:
+                    this.imgGold.Visibility = Visibility.Visible;
+                    this.imgSilver.Visibility = Visibility.Visible;
+                    this.imgBronze.Visibility = Visibility.Visible;
                     break;
             }
         }
