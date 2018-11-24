@@ -17,6 +17,7 @@ namespace Jadahtzee
             this.Init();
             this.FillHighscores();
             this.FillHistory();
+            this.WindowStartupLocation = WindowStartupLocation.CenterScreen;
         }
 
         private void Init()
@@ -65,10 +66,25 @@ namespace Jadahtzee
             }
             else
             {
+                var index = 0;
                 foreach (var entry in entries)
                 {
-                    this.gridHist.Children.Add(this.CreateAlignAndFill(entry.Key.ToString(), entry.Value, false, xMargin));
-                    xMargin += 20;
+                    if (xMargin > 85.00)
+                    {
+                        xMargin = 5.00;
+                    }
+
+                    if (index > 4)
+                    {
+                        this.gridHist.Children.Add(this.CreateAlignAndFill(entry.Key.ToString(), entry.Value, false, xMargin, 127.00));
+                    }
+                    else
+                    {
+                        this.gridHist.Children.Add(this.CreateAlignAndFill(entry.Key.ToString(), entry.Value, false, xMargin));
+                    }
+
+                    xMargin += 20.00;
+                    index++;
                 }
 
                 this.Trophies(entries.Count);
@@ -83,14 +99,14 @@ namespace Jadahtzee
         /// <param name="isHighscore">Highscore if true, history if false</param>
         /// <param name="xMargin">The x margin</param>
         /// <returns>A <see cref="TextBlock"/></returns>
-        private TextBlock CreateAlignAndFill(string score, string name, bool center, double xMargin)
+        private TextBlock CreateAlignAndFill(string score, string name, bool center, double xMargin, double yMargin = 0.00)
         {
             var txt = new TextBlock
             {
                 Text = $"{score} - {name}",
                 HorizontalAlignment = center ? HorizontalAlignment.Center : HorizontalAlignment.Left,
                 VerticalAlignment = VerticalAlignment.Top,
-                Margin = center ? new Thickness(0.00, xMargin, 0.00, 0.00) : new Thickness(xMargin == 85.00 ? 127.00 : 2.00, xMargin, 0.00, 0.00)
+                Margin = new Thickness(yMargin, xMargin, 0.00, 0.00)
             };
             
             return txt;

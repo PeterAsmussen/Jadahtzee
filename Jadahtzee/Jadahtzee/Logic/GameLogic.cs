@@ -1,9 +1,12 @@
 ﻿using System;
+using System.Collections.Generic;
 
 namespace Jadahtzee.Logic
 {
     public class GameLogic
     {
+        private static Player _player;
+
         public GameLogic() { }
         
         /// <summary>
@@ -122,6 +125,7 @@ namespace Jadahtzee.Logic
                 !string.IsNullOrEmpty(player.txtSmall.Text) &&
                 !string.IsNullOrEmpty(player.txtLarge.Text) &&
                 !string.IsNullOrEmpty(player.txtYahtzee.Text) &&
+                !string.IsNullOrEmpty(player.txtFH.Text) &&
                 !string.IsNullOrEmpty(player.txtChance.Text));
         }
 
@@ -142,10 +146,49 @@ namespace Jadahtzee.Logic
             player.txtToaK.Text = "";
             player.txtFoaK.Text = "";
             player.txtSmall.Text = "";
+            player.txtFH.Text = "";
             player.txtLarge.Text = "";
             player.txtYahtzee.Text = "";
             player.txtChance.Text = "";
             player.txtTotal.Text = "";
         }
+
+        /// <summary>
+        /// Determines if the game is over or not.
+        /// </summary>
+        public static bool IsGameOver(List<Player> players)
+        {
+            var index = 0;
+            var highestScore = 0;
+            var winner = string.Empty;
+            foreach (var player in players)
+            {
+                if (player.ScoreTotal == 0)
+                {
+                    return false;
+                }
+
+                var score = player.ScoreTotal;
+                if (score > 0)
+                {
+                    index++;
+
+                    if (score > highestScore)
+                    {
+                        highestScore = score;
+                        winner = player.Name;
+                        _player = player;
+                    }
+                }
+            }
+
+            return true;
+        }
+
+        /// <summary>
+        /// Gets the winner
+        /// </summary>
+        /// <returns>The winning <see cref="Player"/></returns>
+        public static Player GetWinner() { return _player; }
     }
 }

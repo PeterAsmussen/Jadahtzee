@@ -224,7 +224,10 @@ namespace Jadahtzee
 
         private void ucPlayer_IsEnabledChanged(object sender, System.Windows.DependencyPropertyChangedEventArgs e)
         {
-            YahtzeeWindow.IsGameOver();
+            if (Logic.GameLogic.IsGameOver(YahtzeeWindow.GetPlayers))
+            {
+                new GameOver(Logic.GameLogic.GetWinner()).Show();
+            }
         }
     }
 }

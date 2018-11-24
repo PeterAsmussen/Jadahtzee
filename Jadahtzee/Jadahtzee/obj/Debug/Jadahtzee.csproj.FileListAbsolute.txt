@@ -19,3 +19,5 @@ C:\Source\Jadahtzee\Jadahtzee\Jadahtzee\obj\Debug\Highscores.g.cs
 C:\Source\Jadahtzee\Jadahtzee\Jadahtzee\obj\Debug\Highscores.baml
 C:\Source\Jadahtzee\Jadahtzee\Jadahtzee\obj\Debug\GameOver.g.cs
 C:\Source\Jadahtzee\Jadahtzee\Jadahtzee\obj\Debug\GameOver.baml
+C:\Source\Jadahtzee\Jadahtzee\Jadahtzee\bin\Debug\WpfAnimatedGif.dll
+C:\Source\Jadahtzee\Jadahtzee\Jadahtzee\bin\Debug\WpfAnimatedGif.xml

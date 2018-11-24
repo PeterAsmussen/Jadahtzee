@@ -1,12 +1,26 @@
-﻿<UserControl x:Class="Jadahtzee.GameOver"
+﻿<Window x:Class="Jadahtzee.GameOver"
              xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:gif="http://wpfanimatedgif.codeplex.com"
              xmlns:local="clr-namespace:Jadahtzee"
              mc:Ignorable="d" 
-             d:DesignHeight="300" d:DesignWidth="300">
+             d:DesignHeight="300" d:DesignWidth="300"
+             Title="Jadahtzee!" Height="300" Width="300">
     <Grid>
-            
+        <Grid.Background>
+            <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                <GradientStop Color="#FFE3BAAF" Offset="0"/>
+                <GradientStop Color="White" Offset="1"/>
+            </LinearGradientBrush>
+        </Grid.Background>
+        <Image gif:ImageBehavior.AnimatedSource="Resources/fireworksgif.gif" gif:ImageBehavior.RepeatBehavior="100x" Margin="0,0,193,168"/>
+        <Image gif:ImageBehavior.AnimatedSource="Resources/fireworksgif.gif" gif:ImageBehavior.RepeatBehavior="100x" Margin="178,176,10,10"/>
+        <Image gif:ImageBehavior.AnimatedSource="Resources/fireworksgif.gif" gif:ImageBehavior.RepeatBehavior="100x" Margin="0,129,136,0"/>
+        <Image gif:ImageBehavior.AnimatedSource="Resources/fireworksgif.gif" gif:ImageBehavior.RepeatBehavior="100x" Margin="118,0,0,121"/>
+        <GroupBox x:Name="grpbCongrats" Header="Congratulations!" HorizontalAlignment="Center" Height="83" Margin="41,93,30,93" VerticalAlignment="Center" Width="221" FontWeight="Bold">
+            <TextBlock x:Name="txtWinner" HorizontalAlignment="Center" Margin="0,0,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Center"/>
+        </GroupBox>
     </Grid>
-</UserControl>
+</Window>

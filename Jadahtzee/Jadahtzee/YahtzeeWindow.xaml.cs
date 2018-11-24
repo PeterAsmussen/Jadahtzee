@@ -20,39 +20,13 @@ namespace Jadahtzee
         public YahtzeeWindow()
         {
             InitializeComponent();
-            this.DefaultWindowSize();
             playersToAdd = new List<Player>();
             this.playerControllers = new List<PlayerControl>();
+            this.DefaultWindowSize();
+            this.WindowStartupLocation = WindowStartupLocation.CenterScreen;
         }
 
-        /// <summary>
-        /// Determines if the game is over or not.
-        /// </summary>
-        public static void IsGameOver()
-        {
-            var index = 0;
-            var highestScore = 0;
-            var winner = string.Empty;
-            foreach(var player in playersToAdd)
-            {
-                var score = player.ScoreTotal;
-                if (score > 0)
-                {
-                    index++;
-
-                    if (score > highestScore)
-                    {
-                        highestScore = score;
-                        winner = player.Name;
-                    }
-                }
-            }
-
-            if (index == playersToAdd.Count)
-            {
-                new GameOver(new KeyValuePair<int, string>(highestScore, winner));
-            }
-        }
+        public static List<Player> GetPlayers { get { return playersToAdd; } }
 
         /// <summary>
         /// Makes sure the textbox input is numeric.
