@@ -15,12 +15,12 @@
                 <GradientStop Color="White" Offset="1"/>
             </LinearGradientBrush>
         </Grid.Background>
+        <GroupBox x:Name="grpbCongrats" Header="Congratulations!" HorizontalAlignment="Center" Height="83" Margin="38,93,35,93" VerticalAlignment="Center" Width="219" FontWeight="Bold" BorderBrush="Black">
+            <TextBlock x:Name="txtWinner" HorizontalAlignment="Center" Margin="2,2,2,0" TextWrapping="Wrap" Text="" VerticalAlignment="Center"/>
+        </GroupBox>
         <Image gif:ImageBehavior.AnimatedSource="Resources/fireworksgif.gif" gif:ImageBehavior.RepeatBehavior="100x" Margin="0,0,193,168"/>
         <Image gif:ImageBehavior.AnimatedSource="Resources/fireworksgif.gif" gif:ImageBehavior.RepeatBehavior="100x" Margin="178,176,10,10"/>
         <Image gif:ImageBehavior.AnimatedSource="Resources/fireworksgif.gif" gif:ImageBehavior.RepeatBehavior="100x" Margin="0,129,136,0"/>
         <Image gif:ImageBehavior.AnimatedSource="Resources/fireworksgif.gif" gif:ImageBehavior.RepeatBehavior="100x" Margin="118,0,0,121"/>
-        <GroupBox x:Name="grpbCongrats" Header="Congratulations!" HorizontalAlignment="Center" Height="83" Margin="41,93,30,93" VerticalAlignment="Center" Width="221" FontWeight="Bold">
-            <TextBlock x:Name="txtWinner" HorizontalAlignment="Center" Margin="0,0,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Center"/>
-        </GroupBox>
     </Grid>
 </Window>

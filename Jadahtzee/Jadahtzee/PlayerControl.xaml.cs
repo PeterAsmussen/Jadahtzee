@@ -110,6 +110,12 @@ namespace Jadahtzee
             Logic.GameLogic.AddToTotal(this);
         }
 
+        private void WasCut(TextBox textbox)
+        {
+            textbox.Text = "0";
+            textbox.IsEnabled = false;
+        }
+
         #region Textbox handling for upper region
         private void txtAces_LostFocus(object sender, System.Windows.RoutedEventArgs e)
         {
@@ -221,6 +227,73 @@ namespace Jadahtzee
             }
         }
         #endregion
+
+        #region Checkbox handling
+        private void chkAces_Checked(object sender, System.Windows.RoutedEventArgs e)
+        {
+            this.WasCut(this.txtAces);
+        }
+
+        private void chkTwos_Checked(object sender, System.Windows.RoutedEventArgs e)
+        {
+            this.WasCut(this.txtTwos);
+        }
+
+        private void chkThrees_Checked(object sender, System.Windows.RoutedEventArgs e)
+        {
+            this.WasCut(this.txtThrees);
+        }
+
+        private void chkFours_Checked(object sender, System.Windows.RoutedEventArgs e)
+        {
+            this.WasCut(this.txtFours);
+        }
+
+        private void chkFives_Checked(object sender, System.Windows.RoutedEventArgs e)
+        {
+            this.WasCut(this.txtFives);
+        }
+
+        private void chkSixes_Checked(object sender, System.Windows.RoutedEventArgs e)
+        {
+            this.WasCut(this.txtSixes);
+        }
+
+        private void chkToaK_Checked(object sender, System.Windows.RoutedEventArgs e)
+        {
+            this.WasCut(this.txtToaK);
+        }
+
+        private void chkFoaK_Checked(object sender, System.Windows.RoutedEventArgs e)
+        {
+            this.WasCut(this.txtFoaK);
+        }
+
+        private void chkFH_Checked(object sender, System.Windows.RoutedEventArgs e)
+        {
+            this.WasCut(this.txtFH);
+        }
+
+        private void chkSmall_Checked(object sender, System.Windows.RoutedEventArgs e)
+        {
+            this.WasCut(this.txtSmall);
+        }
+
+        private void chkLarge_Checked(object sender, System.Windows.RoutedEventArgs e)
+        {
+            this.WasCut(this.txtLarge);
+        }
+
+        private void chkYahtzee_Checked(object sender, System.Windows.RoutedEventArgs e)
+        {
+            this.WasCut(this.txtYahtzee);
+        }
+
+        private void chkChance_Checked(object sender, System.Windows.RoutedEventArgs e)
+        {
+            this.WasCut(this.txtChance);
+        }
+        #endregion 
 
         private void ucPlayer_IsEnabledChanged(object sender, System.Windows.DependencyPropertyChangedEventArgs e)
         {

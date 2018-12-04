@@ -1,5 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Windows;
+using System.Windows.Controls;
+using System.Windows.Media;
 
 namespace Jadahtzee.Logic
 {
@@ -135,22 +138,16 @@ namespace Jadahtzee.Logic
         /// <param name="player">The player.</param>
         public static void ResetPlayer(PlayerControl player)
         {
-            player.txtAces.Text = "";
-            player.txtTwos.Text = "";
-            player.txtThrees.Text = "";
-            player.txtFours.Text = "";
-            player.txtFives.Text = "";
-            player.txtSixes.Text = "";
-            player.txtTotalUpper.Text = "";
-            player.txtBonus.Text = "";
-            player.txtToaK.Text = "";
-            player.txtFoaK.Text = "";
-            player.txtSmall.Text = "";
-            player.txtFH.Text = "";
-            player.txtLarge.Text = "";
-            player.txtYahtzee.Text = "";
-            player.txtChance.Text = "";
-            player.txtTotal.Text = "";
+            foreach(TextBox textbox in FindVisualChildren<TextBox>(player))
+            {
+                textbox.Text = "";
+            }
+
+            foreach(CheckBox checkbox in FindVisualChildren<CheckBox>(player))
+            {
+                checkbox.IsEnabled = true;
+                checkbox.IsChecked = false;
+            }
         }
 
         /// <summary>
@@ -190,5 +187,32 @@ namespace Jadahtzee.Logic
         /// </summary>
         /// <returns>The winning <see cref="Player"/></returns>
         public static Player GetWinner() { return _player; }
+
+        /// <summary>
+        /// Gets all certain controls of a usercontrol.
+        /// </summary>
+        /// <typeparam name="T"></typeparam>
+        /// <param name="depObj"></param>
+        /// <returns></returns>
+        public static IEnumerable<T> FindVisualChildren<T>(DependencyObject depObj) where T : DependencyObject
+        {
+            if (depObj != null)
+            {
+                for (int i = 0; i < VisualTreeHelper.GetChildrenCount(depObj); i++)
+
+                {
+                    DependencyObject child = VisualTreeHelper.GetChild(depObj, i);
+                    if (child != null && child is T)
+                    {
+                        yield return (T)child;
+                    }
+                    
+                    foreach (T childOfChild in FindVisualChildren<T>(child))
+                    {
+                        yield return childOfChild;
+                    }
+                }
+            }
+        }
     }
 }

@@ -20,21 +20,21 @@
                 </StackPanel>
                 <GridSplitter HorizontalAlignment="Left" Height="96" Margin="60,0,0,0" VerticalAlignment="Top" Width="0" RenderTransformOrigin="0.5,0.5"/>
                 <StackPanel HorizontalAlignment="Left" Height="100" Margin="61,0,0,0" VerticalAlignment="Top" Width="113">
-                    <TextBox x:Name="txtAces" Height="16" TextWrapping="Wrap" FontSize="9" HorizontalAlignment="Center" Width="113" TextAlignment="Center" PreviewTextInput="NumberValidationTextBox" LostFocus="txtAces_LostFocus" />
-                    <TextBox x:Name="txtTwos" Height="16" TextWrapping="Wrap" FontSize="9" HorizontalAlignment="Center" Width="113" TextAlignment="Center" PreviewTextInput="NumberValidationTextBox" LostFocus="txtTwos_LostFocus"/>
-                    <TextBox x:Name="txtThrees" Height="16" TextWrapping="Wrap" FontSize="9" HorizontalAlignment="Center" Width="113" TextAlignment="Center" PreviewTextInput="NumberValidationTextBox" LostFocus="txtThrees_LostFocus"/>
-                    <TextBox x:Name="txtFours" Height="16" TextWrapping="Wrap" FontSize="9" HorizontalAlignment="Center" Width="113" TextAlignment="Center" PreviewTextInput="NumberValidationTextBox" LostFocus="txtFours_LostFocus"/>
-                    <TextBox x:Name="txtFives" Height="16" TextWrapping="Wrap" FontSize="9" HorizontalAlignment="Center" Width="113" TextAlignment="Center" PreviewTextInput="NumberValidationTextBox" LostFocus="txtFives_LostFocus"/>
-                    <TextBox x:Name="txtSixes" Height="16" TextWrapping="Wrap" FontSize="9" HorizontalAlignment="Center" Width="113" TextAlignment="Center" PreviewTextInput="NumberValidationTextBox" LostFocus="txtSixes_LostFocus"/>
+                    <TextBox x:Name="txtAces" Height="16" TextWrapping="Wrap" FontSize="9" HorizontalAlignment="Center" Width="113" TextAlignment="Center" PreviewTextInput="NumberValidationTextBox" LostFocus="txtAces_LostFocus" KeyboardNavigation.TabIndex="0"/>
+                    <TextBox x:Name="txtTwos" Height="16" TextWrapping="Wrap" FontSize="9" HorizontalAlignment="Center" Width="113" TextAlignment="Center" PreviewTextInput="NumberValidationTextBox" LostFocus="txtTwos_LostFocus" KeyboardNavigation.TabIndex="1"/>
+                    <TextBox x:Name="txtThrees" Height="16" TextWrapping="Wrap" FontSize="9" HorizontalAlignment="Center" Width="113" TextAlignment="Center" PreviewTextInput="NumberValidationTextBox" LostFocus="txtThrees_LostFocus" KeyboardNavigation.TabIndex="2"/>
+                    <TextBox x:Name="txtFours" Height="16" TextWrapping="Wrap" FontSize="9" HorizontalAlignment="Center" Width="113" TextAlignment="Center" PreviewTextInput="NumberValidationTextBox" LostFocus="txtFours_LostFocus" KeyboardNavigation.TabIndex="3"/>
+                    <TextBox x:Name="txtFives" Height="16" TextWrapping="Wrap" FontSize="9" HorizontalAlignment="Center" Width="113" TextAlignment="Center" PreviewTextInput="NumberValidationTextBox" LostFocus="txtFives_LostFocus" KeyboardNavigation.TabIndex="4"/>
+                    <TextBox x:Name="txtSixes" Height="16" TextWrapping="Wrap" FontSize="9" HorizontalAlignment="Center" Width="113" TextAlignment="Center" PreviewTextInput="NumberValidationTextBox" LostFocus="txtSixes_LostFocus" KeyboardNavigation.TabIndex="5"/>
                 </StackPanel>
                 <GridSplitter HorizontalAlignment="Left" Height="96" Margin="174,0,0,0" VerticalAlignment="Top" Width="0" RenderTransformOrigin="0.5,0.5"/>
                 <StackPanel HorizontalAlignment="Left" Height="100" Margin="179,0,0,0" VerticalAlignment="Top" Width="38">
-                    <CheckBox x:Name="chkAces" Margin="0,0,0,1" HorizontalAlignment="Center"/>
-                    <CheckBox x:Name="chkTwos" Margin="0,0,0,1" HorizontalAlignment="Center"/>
-                    <CheckBox x:Name="chkThrees" Margin="0,0,0,1" HorizontalAlignment="Center"/>
-                    <CheckBox x:Name="chkFours" Margin="0,0,0,1" HorizontalAlignment="Center"/>
-                    <CheckBox x:Name="chkFives" Margin="0,0,0,1" HorizontalAlignment="Center"/>
-                    <CheckBox x:Name="chkSixes" Margin="0,0,0,1" HorizontalAlignment="Center" />
+                    <CheckBox x:Name="chkAces" Margin="0,0,0,1" HorizontalAlignment="Center" Checked="chkAces_Checked"/>
+                    <CheckBox x:Name="chkTwos" Margin="0,0,0,1" HorizontalAlignment="Center" Checked="chkTwos_Checked"/>
+                    <CheckBox x:Name="chkThrees" Margin="0,0,0,1" HorizontalAlignment="Center" Checked="chkThrees_Checked"/>
+                    <CheckBox x:Name="chkFours" Margin="0,0,0,1" HorizontalAlignment="Center" Checked="chkFours_Checked"/>
+                    <CheckBox x:Name="chkFives" Margin="0,0,0,1" HorizontalAlignment="Center" Checked="chkFives_Checked"/>
+                    <CheckBox x:Name="chkSixes" Margin="0,0,0,1" HorizontalAlignment="Center" Checked="chkSixes_Checked" />
                 </StackPanel>
                 <StackPanel HorizontalAlignment="Left" Height="112" Margin="0,133,0,0" VerticalAlignment="Top" Width="61">
                     <TextBlock TextWrapping="Wrap" Text="3 of a kind" FontFamily="Cambria" Height="16"/>
@@ -47,23 +47,23 @@
                 </StackPanel>
                 <GridSplitter HorizontalAlignment="Left" Height="112" VerticalAlignment="Top" Width="0" RenderTransformOrigin="0.5,0.5" Margin="61,133,0,0"/>
                 <StackPanel HorizontalAlignment="Left" Height="117" Margin="61,133,0,0" VerticalAlignment="Top" Width="113">
-                    <TextBox x:Name="txtToaK" Height="16" TextWrapping="Wrap" FontSize="9" HorizontalAlignment="Center" Width="113" TextAlignment="Center" PreviewTextInput="NumberValidationTextBox" LostFocus="txtToaK_LostFocus"/>
-                    <TextBox x:Name="txtFoaK" Height="16" TextWrapping="Wrap" FontSize="9" HorizontalAlignment="Center" Width="113" TextAlignment="Center" PreviewTextInput="NumberValidationTextBox" LostFocus="txtFoaK_LostFocus"/>
-                    <TextBox x:Name="txtFH" Height="16" TextWrapping="Wrap" FontSize="9" HorizontalAlignment="Center" Width="113" TextAlignment="Center" PreviewTextInput="NumberValidationTextBox" LostFocus="txtFH_LostFocus"/>
-                    <TextBox x:Name="txtSmall" Height="16" TextWrapping="Wrap" FontSize="9" HorizontalAlignment="Center" Width="113" TextAlignment="Center" PreviewTextInput="NumberValidationTextBox" LostFocus="txtSmall_LostFocus"/>
-                    <TextBox x:Name="txtLarge" Height="16" TextWrapping="Wrap" FontSize="9" HorizontalAlignment="Center" Width="113" TextAlignment="Center" PreviewTextInput="NumberValidationTextBox" LostFocus="txtLarge_LostFocus"/>
-                    <TextBox x:Name="txtYahtzee" Height="16" TextWrapping="Wrap" FontSize="9" HorizontalAlignment="Center" Width="113" TextAlignment="Center" PreviewTextInput="NumberValidationTextBox" LostFocus="txtYahtzee_LostFocus"/>
-                    <TextBox x:Name="txtChance" Height="16" TextWrapping="Wrap" FontSize="9" HorizontalAlignment="Center" Width="113" TextAlignment="Center" PreviewTextInput="NumberValidationTextBox" LostFocus="txtChance_LostFocus"/>
+                    <TextBox x:Name="txtToaK" Height="16" TextWrapping="Wrap" FontSize="9" HorizontalAlignment="Center" Width="113" TextAlignment="Center" PreviewTextInput="NumberValidationTextBox" LostFocus="txtToaK_LostFocus" KeyboardNavigation.TabIndex="6"/>
+                    <TextBox x:Name="txtFoaK" Height="16" TextWrapping="Wrap" FontSize="9" HorizontalAlignment="Center" Width="113" TextAlignment="Center" PreviewTextInput="NumberValidationTextBox" LostFocus="txtFoaK_LostFocus" KeyboardNavigation.TabIndex="7"/>
+                    <TextBox x:Name="txtFH" Height="16" TextWrapping="Wrap" FontSize="9" HorizontalAlignment="Center" Width="113" TextAlignment="Center" PreviewTextInput="NumberValidationTextBox" LostFocus="txtFH_LostFocus" KeyboardNavigation.TabIndex="8"/>
+                    <TextBox x:Name="txtSmall" Height="16" TextWrapping="Wrap" FontSize="9" HorizontalAlignment="Center" Width="113" TextAlignment="Center" PreviewTextInput="NumberValidationTextBox" LostFocus="txtSmall_LostFocus" KeyboardNavigation.TabIndex="9"/>
+                    <TextBox x:Name="txtLarge" Height="16" TextWrapping="Wrap" FontSize="9" HorizontalAlignment="Center" Width="113" TextAlignment="Center" PreviewTextInput="NumberValidationTextBox" LostFocus="txtLarge_LostFocus" KeyboardNavigation.TabIndex="10"/>
+                    <TextBox x:Name="txtYahtzee" Height="16" TextWrapping="Wrap" FontSize="9" HorizontalAlignment="Center" Width="113" TextAlignment="Center" PreviewTextInput="NumberValidationTextBox" LostFocus="txtYahtzee_LostFocus" KeyboardNavigation.TabIndex="11"/>
+                    <TextBox x:Name="txtChance" Height="16" TextWrapping="Wrap" FontSize="9" HorizontalAlignment="Center" Width="113" TextAlignment="Center" PreviewTextInput="NumberValidationTextBox" LostFocus="txtChance_LostFocus" KeyboardNavigation.TabIndex="12"/>
                 </StackPanel>
                 <GridSplitter HorizontalAlignment="Left" Height="112" Margin="174,133,0,0" VerticalAlignment="Top" Width="0"/>
                 <StackPanel HorizontalAlignment="Left" Height="111" Margin="179,133,0,0" VerticalAlignment="Top" Width="38">
-                    <CheckBox x:Name="chkToaK" Margin="0,0,0,1" HorizontalAlignment="Center"/>
-                    <CheckBox x:Name="chkFoaK" Margin="0,0,0,1" HorizontalAlignment="Center"/>
-                    <CheckBox x:Name="chkFH" Margin="0,0,0,1" HorizontalAlignment="Center"/>
-                    <CheckBox x:Name="chkSmall" Margin="0,0,0,1" HorizontalAlignment="Center"/>
-                    <CheckBox x:Name="chkLarge" Margin="0,0,0,1" HorizontalAlignment="Center"/>
-                    <CheckBox x:Name="chkYahtzee" Margin="0,0,0,1" HorizontalAlignment="Center"/>
-                    <CheckBox x:Name="chkChance" Margin="0,0,0,1" HorizontalAlignment="Center"/>
+                    <CheckBox x:Name="chkToaK" Margin="0,0,0,1" HorizontalAlignment="Center" Checked="chkToaK_Checked"/>
+                    <CheckBox x:Name="chkFoaK" Margin="0,0,0,1" HorizontalAlignment="Center" Checked="chkFoaK_Checked"/>
+                    <CheckBox x:Name="chkFH" Margin="0,0,0,1" HorizontalAlignment="Center" Checked="chkFH_Checked"/>
+                    <CheckBox x:Name="chkSmall" Margin="0,0,0,1" HorizontalAlignment="Center" Checked="chkSmall_Checked"/>
+                    <CheckBox x:Name="chkLarge" Margin="0,0,0,1" HorizontalAlignment="Center" Checked="chkLarge_Checked"/>
+                    <CheckBox x:Name="chkYahtzee" Margin="0,0,0,1" HorizontalAlignment="Center" Checked="chkYahtzee_Checked"/>
+                    <CheckBox x:Name="chkChance" Margin="0,0,0,1" HorizontalAlignment="Center" Checked="chkChance_Checked"/>
                 </StackPanel>
                 <StackPanel HorizontalAlignment="Left" Height="29" Margin="0,100,0,0" VerticalAlignment="Top" Width="61">
                     <TextBlock TextWrapping="Wrap" Text="Total" FontFamily="Cambria" FontWeight="Bold"/>
